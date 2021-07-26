@@ -37,7 +37,7 @@ namespace ConsoleApp5
 
             var task = Task.Run(() =>
             {
-                process = Test().Result;
+                process = Test();
             });
 
             task.Wait();
@@ -61,7 +61,7 @@ namespace ConsoleApp5
             }
         }
 
-        private static Task<Process> Test()
+        private static Process Test()
         {
             var process = new Process();
             process.StartInfo.RedirectStandardOutput = false;
@@ -73,7 +73,7 @@ namespace ConsoleApp5
             process.StartInfo.CreateNoWindow = true;
             process.Start();
 
-            return Task.FromResult(process);
+            return process;
         }
 
         private static void SuspendProcess(Process process)
